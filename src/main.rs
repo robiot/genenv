@@ -29,6 +29,14 @@ fn find_env(
 ) -> Result<bool, Box<dyn std::error::Error>> {
     let mut found = found_before;
 
+    if opts.path_exclude.len() > 0 {
+        let path_exclude: Vec<String> = opts.path_exclude.iter().map(|i| i.replace("/", "")).collect();
+
+        if path_exclude.contains(&path::Path::new(path).file_name().unwrap().to_str().unwrap().to_string()) {
+            return Ok(found);
+        }
+    }
+
     for entry in match fs::read_dir(path) {
         Ok(f) => f,
         Err(err) => {
