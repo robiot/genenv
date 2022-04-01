@@ -11,6 +11,10 @@ pub struct Opt {
     #[structopt(long, short)]
     pub recursive: bool,
 
+    /// Folders to exclude for recursive
+    #[structopt(long, short, min_values=1)]
+    pub path_exclude: Vec<String>,
+
     /// Example value
     #[structopt(long, short, default_value="value")]
     pub value: String,
