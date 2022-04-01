@@ -6,6 +6,10 @@
 ```
 cargo install genenv
 ```
+```
+yay -S genenv
+paru -S genenv
+```
 
 ## Usage examples:
 
