@@ -31,7 +31,7 @@ fn find_env(
 
     if opts.path_exclude.len() > 0 {
         let path_exclude: Vec<String> = opts.path_exclude.iter().map(|i| i.replace("/", "")).collect();
-
+        // Maybe check if it just ends with it. Then paths with subfolders could be passed
         if path_exclude.contains(&path::Path::new(path).file_name().unwrap().to_str().unwrap().to_string()) {
             return Ok(found);
         }
@@ -86,6 +86,7 @@ fn find_env(
 
             // Grab all keys
             let mut keys: Vec<String> = vec![];
+            // Not using map because of the "return Err"
             for object in iter {
                 keys.push(
                     match object {
