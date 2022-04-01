@@ -1,0 +1,14 @@
+[package]
+authors = ["robiot"]
+description = "genenv"
+edition = "2021"
+license = "GPL-3.0"
+name = "genenv"
+repository = "https://github.com/robiot/genenv"
+version = "1.0.0"
+
+[dependencies]
+structopt = "0.3.26"
+colored = "2.0.0"
+dotenvy = "0.15.1"
+path-clean = "0.1.0"
